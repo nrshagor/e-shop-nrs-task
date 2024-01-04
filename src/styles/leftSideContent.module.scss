@@ -41,3 +41,40 @@
 .headerUserAdd {
   font-size: 20px;
 }
+.modalBody {
+  display: flex;
+  width: 600px;
+  flex-direction: column;
+
+  input {
+    border: none; // Set to none by default
+    border-bottom: 1px solid gray; // Add bottom border
+    padding: 10px 0px;
+    margin: 5px;
+    transition: border 0.3s ease; // Add a transition for a smooth effect
+
+    &:focus,
+    &:not(:placeholder-shown) {
+      border-bottom: 1px solid rgb(0, 112, 47); // Keep the bottom border when focused or has content
+      outline: none; // Remove default focus outline
+      box-shadow: none; // Remove any box shadow that might be applied by default
+    }
+  }
+}
+$primary-color: #007bff; /* Set your primary color */
+$hover-color: #0056b3; /* Darker color for hover effect */
+
+.update {
+  width: 100%;
+  background-color: $primary-color;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+
+  &:hover {
+    background-color: $hover-color;
+  }
+}

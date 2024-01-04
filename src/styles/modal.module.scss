@@ -1,0 +1,74 @@
+/* modal.module.scss */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  animation: fadeIn 0.5s ease forwards;
+
+  &.open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &.closing {
+    animation: fadeOut 0.5s ease forwards;
+  }
+}
+
+.modal {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  transform: translateY(-50%);
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
+
+  &.open {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  &.closing {
+    animation: fadeOut 0.5s ease forwards;
+  }
+  .modalHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 20px;
+    h2 {
+      font-size: 24px;
+    }
+    button {
+      font-size: 24px;
+    }
+  }
+}
