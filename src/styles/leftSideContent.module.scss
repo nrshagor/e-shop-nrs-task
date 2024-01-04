@@ -1,12 +1,43 @@
-.leftSideHeader {
+/* Left side header top section */
+.leftSideHeaderTop {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  .headerManuName {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    column-gap: 2px;
-    background-color: rgb(129, 194, 255);
-  }
+  margin: 15px;
+  justify-content: space-between;
+}
+
+/* Header menu name styling */
+.headerManuName {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 13px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgb(226, 218, 255);
+}
+
+/* Left side header bottom section */
+.leftSideHeaderBottom {
+  display: flex;
+  margin: 15px;
+  padding: 15px;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgb(226, 218, 255);
+  align-items: center;
+}
+
+/* Header user name styling */
+.headerUserName {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 10px;
+  font-size: 16px;
+}
+
+/* Header user add styling */
+.headerUserAdd {
+  font-size: 20px;
 }
