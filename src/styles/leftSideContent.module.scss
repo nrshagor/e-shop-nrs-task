@@ -35,6 +35,11 @@
   align-items: center;
   column-gap: 10px;
   font-size: 16px;
+  button {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+  }
 }
 
 /* Header user add styling */
@@ -60,6 +65,15 @@
       box-shadow: none; // Remove any box shadow that might be applied by default
     }
   }
+}
+.addMoreDetails {
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+  margin: 20px 0px;
+  font-size: 20px;
+  color: rgb(19, 19, 192);
+  font-weight: 500;
 }
 $primary-color: #007bff; /* Set your primary color */
 $hover-color: #0056b3; /* Darker color for hover effect */
