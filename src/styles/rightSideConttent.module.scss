@@ -1,0 +1,34 @@
+.rightSideHeaderTop {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  padding: 0px 20px;
+  font-size: 24px;
+  box-shadow: 1px 1px 9px 2px #c3c3c3;
+  .rightSideHeaderTopLeft {
+    display: flex;
+    width: 95%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 10px;
+    -moz-column-gap: 10px;
+    input {
+      border: none;
+      padding: 10px 0px;
+      margin: 5px;
+      transition: border 0.3s ease;
+      width: 100%;
+      &:focus,
+      &:not(:placeholder-shown) {
+        outline: none;
+        box-shadow: none;
+      }
+    }
+  }
+  .rightSideHeaderTopRight {
+    width: 4%;
+  }
+}

@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
 
-import RightSideContent from "./components/RightSideContent";
 import LeftSideContent from "./components/DisplayLeftside/LeftSideContent";
+import RightSideContent from "./components/DisplayRightSide/RightSideContent";
 
 const inter = Inter({ subsets: ["latin"] });
 
