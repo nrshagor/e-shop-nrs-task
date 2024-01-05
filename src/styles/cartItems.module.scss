@@ -1,0 +1,84 @@
+.cartItems {
+  width: 510px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 15px;
+  .cartItemsLeft {
+    width: 4%;
+  }
+  .cartItemsMiddle {
+    width: 94%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid rgb(116, 116, 116);
+    .itemsName {
+      padding-left: 10px;
+      width: 45%;
+      font-size: 16px;
+    }
+    .itemsPrices {
+      width: 15%;
+      font-size: 16px;
+    }
+    .itemsQuantity {
+      width: 15%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      column-gap: 10px;
+    }
+    .itemsTotalPrices {
+      width: 15%;
+    }
+  }
+  .cartItemsRight {
+    width: 3%;
+    font-size: 22px;
+    color: red;
+  }
+}
+.amountSection {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  bottom: 0px;
+
+  .calculateAmount {
+    width: 211px;
+    display: flex;
+    position: relative;
+    left: 60%;
+    flex-direction: column;
+    .subTotal,
+    .tax,
+    .shipping,
+    .discount {
+      margin-right: 15px;
+      padding: 5px 0px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      border-top: 1px solid gray;
+      span {
+        font-weight: 500;
+      }
+      &:nth-last-child(1) {
+        p {
+          color: blue;
+        }
+      }
+    }
+  }
+  .totalAmount {
+    margin: 15px;
+    display: flex;
+    background: rgb(222, 222, 252);
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+  }
+}
