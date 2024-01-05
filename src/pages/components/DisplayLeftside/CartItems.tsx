@@ -4,6 +4,10 @@ import { FaCirclePlus } from "react-icons/fa6";
 import { FaMinusCircle } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { GiCancel } from "react-icons/gi";
+import { FaHandHoldingUsd } from "react-icons/fa";
+import { FaRegHandRock } from "react-icons/fa";
+import { TbDiscount2 } from "react-icons/tb";
 
 interface CartItem {
   id: number;
@@ -111,8 +115,23 @@ const CartItems = () => {
           <h2>Total</h2>
           <p>${total.toFixed(2)}</p>
         </div>
-        <div>
-          <p>Cancel</p>
+        <div className={style.cartItemsFooter}>
+          <button>
+            <GiCancel />
+            Cancel
+          </button>
+          <button>
+            <FaRegHandRock />
+            Hold
+          </button>
+          <button>
+            <TbDiscount2 />
+            Discount
+          </button>
+          <button>
+            <FaHandHoldingUsd />
+            Pay Now
+          </button>
         </div>
       </div>
     </div>
