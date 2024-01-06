@@ -1,0 +1,28 @@
+.productItemsSection {
+  padding: 20px 40px;
+  .productItemsManu {
+    margin-bottom: 20px;
+    display: flex;
+    column-gap: 8px;
+
+    button {
+      padding: 10px;
+      border-radius: 5px;
+      border: 2px solid rgb(65, 65, 255);
+      font-size: 20px;
+      color: rgb(65, 65, 255);
+    }
+  }
+  .product {
+    width: 58vw;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    row-gap: 20px;
+
+    .productCard {
+      border: 1px solid rgb(150, 150, 150);
+      width: 10vw;
+      text-align: center;
+    }
+  }
+}
