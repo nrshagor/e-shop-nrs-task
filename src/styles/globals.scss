@@ -8,6 +8,7 @@ main {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  overflow-x: hidden;
   .display {
     width: 100vw;
     display: flex;

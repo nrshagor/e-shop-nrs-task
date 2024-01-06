@@ -1,18 +1,30 @@
-import React from "react";
-import { FaEdit } from "react-icons/fa";
-import { MdLocalShipping } from "react-icons/md";
-import { MdOutlineDataThresholding } from "react-icons/md";
-import { FaPlusCircle } from "react-icons/fa";
-import { FaBars } from "react-icons/fa";
+import React, { useState } from "react";
+import { FaEdit, FaBars, FaPlusCircle } from "react-icons/fa";
+import { MdLocalShipping, MdOutlineDataThresholding } from "react-icons/md";
 import style from "@/styles/leftSideContent.module.scss";
 import Link from "next/link";
 
 const LeftSideHeaderTop = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
   return (
     <div className={style.leftSideHeaderTop}>
-      <button>
+      <button onClick={toggleSidebar}>
         <FaBars />
       </button>
+
+      {/* Sidebar */}
+      {isSidebarOpen && (
+        <div className={`${style.sidebar} ${style.sidebarOpen}`}>
+          <h1>hello</h1>
+          <button onClick={toggleSidebar}>Close</button>
+        </div>
+      )}
+
       <Link href="" className={style.headerManuName}>
         <FaEdit /> <p>Note</p>
       </Link>

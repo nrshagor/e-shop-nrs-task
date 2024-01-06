@@ -1,28 +1,76 @@
 .productItemsSection {
+  position: relative;
   padding: 20px 40px;
+
   .productItemsManu {
     margin-bottom: 20px;
     display: flex;
-    column-gap: 8px;
+    column-gap: 2vw;
 
     button {
-      padding: 10px;
+      padding: 6px;
       border-radius: 5px;
       border: 2px solid rgb(65, 65, 255);
       font-size: 20px;
       color: rgb(65, 65, 255);
+      &:nth-last-child(1) {
+        border: none;
+      }
     }
   }
+
+  .mobileSidebar {
+    display: block;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: 0;
+    left: 76%;
+    width: 11vw;
+    background-color: #fff;
+    transition: left 0.3s ease;
+
+    button {
+      background-color: #3498db;
+      color: #fff;
+      padding: 8px 16px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+
+      &:hover {
+        background-color: #2980b9;
+      }
+    }
+
+    // Add styles for the close button
+    .closeButton {
+      background-color: #e74c3c;
+      &:hover {
+        background-color: #c0392b;
+      }
+    }
+  }
+
   .product {
     width: 58vw;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     row-gap: 20px;
+    padding: 0px 40px 0px 0px;
 
     .productCard {
       border: 1px solid rgb(150, 150, 150);
       width: 10vw;
       text-align: center;
+      max-height: 25vw;
+      cursor: pointer;
+
+      img {
+        width: 100%;
+        max-height: 12vw;
+        object-fit: cover;
+      }
     }
   }
 }

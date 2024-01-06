@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import LeftSideContent from "./components/DisplayLeftside/LeftSideContent";
-import RightSideContent from "./components/DisplayRightSide/RightSideContent";
 import ProductItems from "./components/DisplayRightSide/ProductItems";
 import CartItems from "./components/DisplayLeftside/CartItems";
 
@@ -52,7 +51,6 @@ export default function Home() {
           <CartItems items={cartItems} setItems={setCartItems} />
         </div>
         <div className="display-right">
-          <RightSideContent />
           <ProductItems addToCart={addProductToCart} />
         </div>
       </div>
