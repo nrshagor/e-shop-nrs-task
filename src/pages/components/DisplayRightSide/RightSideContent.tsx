@@ -6,7 +6,6 @@ const RightSideContent = () => {
   return (
     <div>
       <RightSideHeaderTop />
-      <ProductItems />
     </div>
   );
 };

@@ -1,3 +1,5 @@
+// CartItems.tsx
+
 import React, { useState } from "react";
 import style from "@/styles/cartItems.module.scss";
 import { FaCirclePlus } from "react-icons/fa6";
@@ -5,8 +7,7 @@ import { FaMinusCircle } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { GiCancel } from "react-icons/gi";
-import { FaHandHoldingUsd } from "react-icons/fa";
-import { FaRegHandRock } from "react-icons/fa";
+import { FaHandHoldingUsd, FaRegHandRock } from "react-icons/fa";
 import { TbDiscount2 } from "react-icons/tb";
 
 interface CartItem {
@@ -16,24 +17,13 @@ interface CartItem {
   quantity: number;
 }
 
-const initialItems: CartItem[] = [
-  { id: 1, name: "Pure White", price: 71.5, quantity: 1 },
-  { id: 2, name: "Black Sleeve", price: 90.6, quantity: 1 },
-  { id: 3, name: "Pure White & Black Sleeve", price: 91.0, quantity: 1 },
-];
+interface CartItemsProps {
+  items: CartItem[];
+  setItems: React.Dispatch<React.SetStateAction<CartItem[]>>;
+}
 
-const CartItems = () => {
-  const [items, setItems] = useState(initialItems);
-
-  const increaseQuantity = (itemId: number) => {
-    setItems((prevItems) =>
-      prevItems.map((item) =>
-        item.id === itemId ? { ...item, quantity: item.quantity + 1 } : item
-      )
-    );
-  };
-
-  const decreaseQuantity = (itemId: number) => {
+const CartItems: React.FC<CartItemsProps> = ({ items, setItems }) => {
+  const handleDecreaseQuantity = (itemId: number) => {
     setItems((prevItems) =>
       prevItems.map((item) =>
         item.id === itemId && item.quantity > 1
@@ -43,7 +33,15 @@ const CartItems = () => {
     );
   };
 
-  const removeItem = (itemId: number) => {
+  const handleIncreaseQuantity = (itemId: number) => {
+    setItems((prevItems) =>
+      prevItems.map((item) =>
+        item.id === itemId ? { ...item, quantity: item.quantity + 1 } : item
+      )
+    );
+  };
+
+  const handleRemoveItem = (itemId: number) => {
     setItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
   };
 
@@ -73,11 +71,11 @@ const CartItems = () => {
             <div className={style.itemsName}>{item.name}</div>
             <div className={style.itemsPrices}>${item.price.toFixed(2)}</div>
             <div className={style.itemsQuantity}>
-              <button onClick={() => decreaseQuantity(item.id)}>
+              <button onClick={() => handleDecreaseQuantity(item.id)}>
                 <FaMinusCircle />
               </button>
               <p>{item.quantity}</p>
-              <button onClick={() => increaseQuantity(item.id)}>
+              <button onClick={() => handleIncreaseQuantity(item.id)}>
                 <FaCirclePlus />
               </button>
             </div>
@@ -87,7 +85,7 @@ const CartItems = () => {
           </div>
           <div
             className={style.cartItemsRight}
-            onClick={() => removeItem(item.id)}
+            onClick={() => handleRemoveItem(item.id)}
           >
             <RiDeleteBin6Line />
           </div>
@@ -116,22 +114,10 @@ const CartItems = () => {
           <p>${total.toFixed(2)}</p>
         </div>
         <div className={style.cartItemsFooter}>
-          <button>
-            <GiCancel />
-            Cancel
-          </button>
-          <button>
-            <FaRegHandRock />
-            Hold
-          </button>
-          <button>
-            <TbDiscount2 />
-            Discount
-          </button>
-          <button>
-            <FaHandHoldingUsd />
-            Pay Now
-          </button>
+          <button onClick={() => setItems([])}>Cancel</button>
+          <button>Hold</button>
+          <button>Discount</button>
+          <button>Pay Now</button>
         </div>
       </div>
     </div>

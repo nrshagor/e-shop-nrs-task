@@ -13,7 +13,6 @@ const LeftSideContent = () => {
     <div>
       <LeftSideHeaderTop />
       <LeftSideHeaderBottom />
-      <CartItems />
     </div>
   );
 };
