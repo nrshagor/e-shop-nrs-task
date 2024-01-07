@@ -17,3 +17,22 @@ In this Project I Used
 - Typescript
 - Tailwind CSS
 - Scss
+
+## Working Function
+
+- Search Option
+- Filter Categories
+- Sidebar
+- Displaying products
+- Adding to cart
+- Cancel Button
+- Delete Button
+- Cart adjustment
+- Settings Modal
+- Add User Modal
+
+## More
+
+- Clean code
+- Responsive
+- Cross-browser compatibility
