@@ -3,6 +3,7 @@ import style from "@/styles/productItems.module.scss";
 import searchStyle from "@/styles/rightSideConttent.module.scss";
 import { IoSearchSharp } from "react-icons/io5";
 import { FaBarcode } from "react-icons/fa";
+import { RxCross1 } from "react-icons/rx";
 import { HiOutlineDotsVertical } from "react-icons/hi";
 import Image from "next/image";
 import bluepolo from "../../../../public/images/polo.jpg";
@@ -129,14 +130,18 @@ const ProductItems: React.FC<ProductItemsProps> = ({ addToCart }) => {
               Home & Lifestyle
             </button>
             <button onClick={handleSidebarToggle}>
-              {showMobileSidebar ? "Hide Categories" : "Show Categories"}
+              <HiOutlineDotsVertical />
             </button>
           </div>
-
-          {/* Mobile version */}
-          <div className={style.mobileSidebar}>
-            {showMobileSidebar && (
-              <>
+        </div>
+        {/* Mobile version */}
+        <div className={style.mobileSidebar}>
+          {showMobileSidebar && (
+            <div className={style.mobileSidebarManu}>
+              <button className={style.closebtn} onClick={handleSidebarClose}>
+                <RxCross1 />
+              </button>
+              <div className={style.mobileSidebarManuName}>
                 <button onClick={() => setSelectedCategory("All Categories")}>
                   All Categories
                 </button>
@@ -149,11 +154,9 @@ const ProductItems: React.FC<ProductItemsProps> = ({ addToCart }) => {
                 <button onClick={() => setSelectedCategory("Home & Lifestyle")}>
                   Home & Lifestyle
                 </button>
-                {/* Add more buttons for additional categories */}
-                <button onClick={handleSidebarClose}>Close</button>
-              </>
-            )}
-          </div>
+              </div>
+            </div>
+          )}
         </div>
         <div className={style.product}>
           {filteredProducts.map((product) => (
