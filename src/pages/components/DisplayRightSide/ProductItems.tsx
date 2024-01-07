@@ -134,30 +134,7 @@ const ProductItems: React.FC<ProductItemsProps> = ({ addToCart }) => {
             </button>
           </div>
         </div>
-        {/* Mobile version */}
-        <div className={style.mobileSidebar}>
-          {showMobileSidebar && (
-            <div className={style.mobileSidebarManu}>
-              <button className={style.closebtn} onClick={handleSidebarClose}>
-                <RxCross1 />
-              </button>
-              <div className={style.mobileSidebarManuName}>
-                <button onClick={() => setSelectedCategory("All Categories")}>
-                  All Categories
-                </button>
-                <button onClick={() => setSelectedCategory("Men Fashion")}>
-                  Men Fashion
-                </button>
-                <button onClick={() => setSelectedCategory("Electronics")}>
-                  Electronics
-                </button>
-                <button onClick={() => setSelectedCategory("Home & Lifestyle")}>
-                  Home & Lifestyle
-                </button>
-              </div>
-            </div>
-          )}
-        </div>
+
         <div className={style.product}>
           {filteredProducts.map((product) => (
             <div
@@ -171,6 +148,30 @@ const ProductItems: React.FC<ProductItemsProps> = ({ addToCart }) => {
             </div>
           ))}
         </div>
+      </div>
+      {/* Mobile version */}
+      <div className={style.mobileSidebar}>
+        {showMobileSidebar && (
+          <div className={style.mobileSidebarManu}>
+            <button className={style.closebtn} onClick={handleSidebarClose}>
+              <RxCross1 />
+            </button>
+            <div className={style.mobileSidebarManuName}>
+              <button onClick={() => setSelectedCategory("All Categories")}>
+                All Categories
+              </button>
+              <button onClick={() => setSelectedCategory("Men Fashion")}>
+                Men Fashion
+              </button>
+              <button onClick={() => setSelectedCategory("Electronics")}>
+                Electronics
+              </button>
+              <button onClick={() => setSelectedCategory("Home & Lifestyle")}>
+                Home & Lifestyle
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </>
   );

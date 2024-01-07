@@ -1,4 +1,6 @@
 /* modal.module.scss */
+
+/* Define keyframes for fadeIn and fadeOut animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -17,6 +19,7 @@
   }
 }
 
+/* Overlay Styles */
 .modalOverlay {
   position: fixed;
   top: 0;
@@ -42,6 +45,7 @@
   }
 }
 
+/* Modal Styles */
 .modal {
   background: white;
   padding: 20px;
@@ -60,16 +64,28 @@
   &.closing {
     animation: fadeOut 0.5s ease forwards;
   }
+
+  /* Modal Header Styles */
   .modalHeader {
     display: flex;
     flex-direction: row;
     align-items: center;
     column-gap: 20px;
+
     h2 {
       font-size: 24px;
     }
+
     button {
       font-size: 24px;
     }
+  }
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .modal {
+    max-width: 80%;
+    margin: 0 auto;
   }
 }
