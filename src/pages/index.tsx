@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Image from "next/image";
 import { Inter } from "next/font/google";
 import LeftSideContent from "./components/DisplayLeftside/LeftSideContent";
 import ProductItems from "./components/DisplayRightSide/ProductItems";
@@ -25,12 +24,10 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home() {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
-  // Function to add a product to the cart
   const addProductToCart = (product: Product) => {
     const existingProduct = cartItems.find((item) => item.id === product.id);
 
     if (existingProduct) {
-      // If the product is already in the cart, increase its quantity
       setCartItems((prevItems) =>
         prevItems.map((item) =>
           item.id === existingProduct.id
@@ -39,7 +36,6 @@ export default function Home() {
         )
       );
     } else {
-      // If the product is not in the cart, add it with a quantity of 1
       setCartItems((prevItems) => [...prevItems, { ...product, quantity: 1 }]);
     }
   };
