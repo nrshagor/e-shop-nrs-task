@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import LeftSideContent from "./components/DisplayLeftside/LeftSideContent";
 import ProductItems from "./components/DisplayRightSide/ProductItems";
 import CartItems from "./components/DisplayLeftside/CartItems";
+import Head from "next/head";
 
 interface Product {
   id: number;
@@ -44,16 +45,21 @@ export default function Home() {
   };
 
   return (
-    <main className={`${inter.className}`}>
-      <div className="display">
-        <div className="display-left">
-          <LeftSideContent />
-          <CartItems items={cartItems} setItems={setCartItems} />
+    <>
+      <Head>
+        <title>N R SHAGOR || POS</title>
+      </Head>
+      <main className={`${inter.className}`}>
+        <div className="display">
+          <div className="display-left">
+            <LeftSideContent />
+            <CartItems items={cartItems} setItems={setCartItems} />
+          </div>
+          <div className="display-right">
+            <ProductItems addToCart={addProductToCart} />
+          </div>
         </div>
-        <div className="display-right">
-          <ProductItems addToCart={addProductToCart} />
-        </div>
-      </div>
-    </main>
+      </main>
+    </>
   );
 }

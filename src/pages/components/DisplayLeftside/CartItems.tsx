@@ -6,9 +6,6 @@ import { FaCirclePlus } from "react-icons/fa6";
 import { FaMinusCircle } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
-import { GiCancel } from "react-icons/gi";
-import { FaHandHoldingUsd, FaRegHandRock } from "react-icons/fa";
-import { TbDiscount2 } from "react-icons/tb";
 
 interface CartItem {
   id: number;
@@ -22,7 +19,7 @@ interface CartItemsProps {
   setItems: React.Dispatch<React.SetStateAction<CartItem[]>>;
 }
 
-const CartItems: React.FC<CartItemsProps> = ({ items, setItems }) => {
+const CartItems: React.FC<CartItemsProps> = ({ items = [], setItems }) => {
   const handleDecreaseQuantity = (itemId: number) => {
     setItems((prevItems) =>
       prevItems.map((item) =>
@@ -46,10 +43,9 @@ const CartItems: React.FC<CartItemsProps> = ({ items, setItems }) => {
   };
 
   // Calculate subtotal, tax, shipping, discount, and total based on items
-  const subtotal = items.reduce(
-    (acc, item) => acc + item.price * item.quantity,
-    0
-  );
+  const subtotal = items
+    ? items.reduce((acc, item) => acc + item.price * item.quantity, 0)
+    : 0;
 
   const tax = 25.0;
   const shipping = 5.5;
@@ -62,35 +58,36 @@ const CartItems: React.FC<CartItemsProps> = ({ items, setItems }) => {
 
   return (
     <div>
-      {items.map((item) => (
-        <div key={item.id} className={style.cartItems}>
-          <div className={style.cartItemsLeft}>
-            <FaEdit />
-          </div>
-          <div className={style.cartItemsMiddle}>
-            <div className={style.itemsName}>{item.name}</div>
-            <div className={style.itemsPrices}>${item.price.toFixed(2)}</div>
-            <div className={style.itemsQuantity}>
-              <button onClick={() => handleDecreaseQuantity(item.id)}>
-                <FaMinusCircle />
-              </button>
-              <p>{item.quantity}</p>
-              <button onClick={() => handleIncreaseQuantity(item.id)}>
-                <FaCirclePlus />
-              </button>
+      {items &&
+        items.map((item) => (
+          <div key={item.id} className={style.cartItems}>
+            <div className={style.cartItemsLeft}>
+              <FaEdit />
             </div>
-            <div className={style.itemsTotalPrices}>
-              ${(item.quantity * item.price).toFixed(2)}
+            <div className={style.cartItemsMiddle}>
+              <div className={style.itemsName}>{item.name}</div>
+              <div className={style.itemsPrices}>${item.price.toFixed(2)}</div>
+              <div className={style.itemsQuantity}>
+                <button onClick={() => handleDecreaseQuantity(item.id)}>
+                  <FaMinusCircle />
+                </button>
+                <p>{item.quantity}</p>
+                <button onClick={() => handleIncreaseQuantity(item.id)}>
+                  <FaCirclePlus />
+                </button>
+              </div>
+              <div className={style.itemsTotalPrices}>
+                ${(item.quantity * item.price).toFixed(2)}
+              </div>
+            </div>
+            <div
+              className={style.cartItemsRight}
+              onClick={() => handleRemoveItem(item.id)}
+            >
+              <RiDeleteBin6Line />
             </div>
           </div>
-          <div
-            className={style.cartItemsRight}
-            onClick={() => handleRemoveItem(item.id)}
-          >
-            <RiDeleteBin6Line />
-          </div>
-        </div>
-      ))}
+        ))}
       <div className={style.amountSection}>
         <div className={style.calculateAmount}>
           <div className={style.subTotal}>
